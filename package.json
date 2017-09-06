@@ -1,0 +1,24 @@
+{
+  "name": "10clouds_form",
+  "version": "1.0.0",
+  "description": "10clouds form",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/majkamajka/BezpiecznyBank.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/majkamajka/BezpiecznyBank/issues"
+  },
+  "homepage": "https://github.com/majkamajka/BezpiecznyBank#readme"
+}
