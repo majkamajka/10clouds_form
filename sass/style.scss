@@ -5,6 +5,7 @@
   box-sizing: border-box;
 }
 
+$bgColor: #242424;
 $mainDark: #531fc0;
 $mainBright: #7841f4;
 $accentDark: #1cd4a3;
@@ -16,6 +17,10 @@ $label: #a2a2af;
 
 html {
   font-size: 62.5%;
+}
+
+p, h2, input, select, span {
+  color: $text;
 }
 
 .hidden {
@@ -79,7 +84,7 @@ html {
   max-height: 100%;
   width: 100vw;
   max-width: 100%;
-  background-color: #242424;
+  background-color: $bgColor;
   z-index: -1;
   overflow: hidden;
   #gradient {
@@ -140,8 +145,31 @@ header h1 {
   fieldset {
     border: none;
   }
-  input {
+  input, select {
+    font-size: 1.6rem;
+    font-weight: 400;
     border: none;
     border-bottom: 2px solid $bordersForm;
+    padding: 0 0 15px 15px;
+    &:focus {
+      outline-style:none;
+      border-bottom: 2px solid $mainDark;
+    }
+    &[type="number"], &[type="tel"] {
+      padding-bottom: 16px;
+    }
+    &[id="name"] {
+      width: 260px;
+    }
+    &[id="prefix"] {
+      width: 114px;
+    }
+    &[id="tel-number"] {
+      width: 131px;
+      margin-left: 12px;
+    }
+  }
+  select {
+    background-color: transparent;
   }
 }
