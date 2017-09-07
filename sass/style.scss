@@ -31,8 +31,19 @@ $brdersForm: #dfdfe4;
   max-width:100%;
   background-color: #242424;
   z-index: -1;
+  overflow: hidden;
   #gradient {
     position: absolute;
     left: -30px;
+  }
+  #lines-top {
+    position: absolute;
+    z-index: -1;
+    left: 217px;
+  }
+  #lines-bottom {
+    position: absolute;
+    right: 0;
+    bottom: 0;
   }
 }
