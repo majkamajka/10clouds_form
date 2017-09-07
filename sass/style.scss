@@ -13,10 +13,26 @@ $text: #202020;
 $bgForm: #fcfcfd;
 $brdersForm: #dfdfe4;
 
-.hidden
-{position:absolute;
-left:-10000px;
-top:auto;
-width:1px;
-height:1px;
-overflow:hidden;}
+.hidden {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+#background {
+  position: absolute;
+  display: block;
+  height: 100vh;
+  max-height:100%;
+  width: 100vw;
+  max-width:100%;
+  background-color: #242424;
+  z-index: -1;
+  #gradient {
+    position: absolute;
+    left: -30px;
+  }
+}
