@@ -180,6 +180,10 @@ header h1 {
     border: 2px solid $bordersForm;
     padding: 0;
     padding-left: 12px;
+    &:focus {
+      outline-style:none;
+      border: 2px solid $mainDark;
+    }
   }
   #dobYear {
     width: 103px;
@@ -191,5 +195,49 @@ header h1 {
     background: $bordersForm;
     vertical-align: middle;
     margin: 0 7px 0 6px;
+  }
+}
+
+
+// https://webdesign.tutsplus.com/articles/quick-tip-easy-css3-checkboxes-and-radio-buttons--webdesign-8953
+
+input[type="radio"] {
+    display:none;
+}
+
+
+input[type="radio"] + label span {
+  display:inline-block;
+  width: 50px;
+  height: 50px;
+  border: 2px solid $bordersForm;
+  text-align: center;
+  padding-top: 10px;
+  vertical-align: middle;
+  position: relative;
+  cursor:pointer;
+
+  &::after {
+    content: " ";
+    background-color: $bgForm;
+    position: absolute;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border: 2px solid $bordersForm;
+    right: -8px;
+    top: 15px;
+  }
+}
+[for="female"] {
+  margin-left: 26px;
+}
+
+input[type="radio"]:checked + label span {
+  border: 2px solid $accentDark;
+  &::after {
+    content: url('../images/fill.png');
+    text-align: center;
+    border: 2px solid $accentDark;
   }
 }
