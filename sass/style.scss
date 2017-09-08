@@ -139,34 +139,37 @@ header h1 {
     color: $label;
     font-size: 1.1rem;
     font-weight: 400;
-    line-height: 28px;
     padding-left: 15px;
     display: block;
-    margin-top: 15px;
+    margin-top: 13px;
+    margin-bottom: 5px;
   }
+  legend.dob {
+    margin-bottom: 15px;
+  }
+
   fieldset {
     border: none;
-    margin-top: 15px;
+    margin-top: 18px;
   }
   input, select {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 400;
     background-color: transparent;
     border: none;
     border-bottom: 2px solid $bordersForm;
     padding: 0 0 15px 15px;
+    margin-bottom: 4px;
     &:focus {
       outline-style:none;
       border-bottom: 2px solid $mainDark;
-    }
-    &[type="number"], &[type="tel"] {
-      padding-bottom: 16px;
     }
     &[id="name"] {
       width: 260px;
     }
     &[id="prefix"] {
       width: 114px;
+      padding-left: 12px;
     }
     &[id="tel-number"] {
       width: 131px;
@@ -245,6 +248,7 @@ input[type="radio"] + label span {
   vertical-align: middle;
   position: relative;
   cursor:pointer;
+  margin-top: 5px;
 
   &::after {
     content: " ";
@@ -258,7 +262,7 @@ input[type="radio"] + label span {
     top: 15px;
   }
 }
-[for="female"] {
+[for="male"] {
   margin-left: 26px;
 }
 
@@ -269,4 +273,8 @@ input[type="radio"]:checked + label span {
     text-align: center;
     border: 2px solid $accentDark;
   }
+}
+
+@media(min-width: 800px) {
+  
 }
