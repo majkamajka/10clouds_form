@@ -64,8 +64,6 @@ p, h2, input, select, span {
   }
 }
 
-
-
 #background {
   position: absolute;
   top: 0;
@@ -84,6 +82,7 @@ p, h2, input, select, span {
     top: -108px;
   }
   #lines-top {
+    display: none;
     position: absolute;
     z-index: -1;
     left: 217px;
@@ -278,38 +277,44 @@ input[type="radio"]:checked + label span {
   .flex-container {
     padding-top: 65px;
   }
- .grid-container {
-   width: 778px;
-   .row .left {
-     display: inline-block;
-     width: 308px;
-   }
-   .row .right {
-     width: 470px; // dodać +10px !!!!!!!!!!!!!!!!!!!!!!!!!
-   }
-
-   #form {
-     height: 552px;
-
-   }
-   #left-box {
-     height: 552px;
-     background-image: url('../images/bgimg.jpg');
-     background-repeat: no-repeat;
-     background-size: contain;
-     #cover {
-       height: 100%;
-       width: 100%;
-       background-color: rgba(32, 32, 32, 0.9);
-       img {
-         margin-top: 50px;
-         margin-left: 15px;
-       }
-
-     }
-   }
- }
- #background #lines-bottom {
-   left: 0;
- }
+  .grid-container {
+    width: 778px;
+    .row .left {
+    display: inline-block;
+    width: 308px;
+    }
+    .row .right {
+      width: 470px; // dodać +10px !!!!!!!!!!!!!!!!!!!!!!!!!
+    }
+    #form {
+      height: 552px;
+    }
+    #left-box {
+      height: 552px;
+      background-image: url('../images/bgimg.jpg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      #cover {
+        height: 100%;
+        width: 100%;
+        background-color: rgba(32, 32, 32, 0.9);
+        img {
+          margin-top: 50px;
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+  #background {
+    #gradient {
+      top: 0;
+    }
+    #lines-top {
+      display: inline-block;
+    }
+    #lines-bottom {
+     left: auto;
+     right: 0;
+    }
+  }
 }
