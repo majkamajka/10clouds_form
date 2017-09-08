@@ -61,13 +61,6 @@ p, h2, input, select, span {
     .right {
       width: 290px;
     }
-
-    // @media (max-width: 550px) {
-    //   [class*='col-'] {
-    //     float: none;
-    //     width: 100%;
-    //   }
-    // }
   }
 }
 
@@ -127,6 +120,14 @@ header h1 {
   background-color: $bgForm;
   padding: 35px 15px;
   position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 70px;
+    background-color: $accentBright;
+    top: -1px;
+  }
   h2 {
     font-size: 1.4rem;
     font-weight: 400;
@@ -274,21 +275,22 @@ input[type="radio"]:checked + label span {
 }
 
 @media (min-width: 800px) {
-  * {
-    border: 1px solid magenta;
+  .flex-container {
+    padding-top: 65px;
   }
  .grid-container {
    width: 778px;
-   border: 2px dotted yellow;
    .row .left {
      display: inline-block;
      width: 308px;
    }
    .row .right {
-     width: 460px; // dodać +10px !!!!!!!!!!!!!!!!!!!!!!!!!
+     width: 470px; // dodać +10px !!!!!!!!!!!!!!!!!!!!!!!!!
    }
+
    #form {
      height: 552px;
+
    }
    #left-box {
      height: 552px;
@@ -298,8 +300,16 @@ input[type="radio"]:checked + label span {
      #cover {
        height: 100%;
        width: 100%;
-       background-color: rgba(32, 32, 32, 0.9)
+       background-color: rgba(32, 32, 32, 0.9);
+       img {
+         margin-top: 50px;
+         margin-left: 15px;
+       }
+
      }
    }
+ }
+ #background #lines-bottom {
+   left: 0;
  }
 }
