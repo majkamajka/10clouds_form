@@ -148,6 +148,7 @@ header h1 {
   input, select {
     font-size: 1.6rem;
     font-weight: 400;
+    background-color: transparent;
     border: none;
     border-bottom: 2px solid $bordersForm;
     padding: 0 0 15px 15px;
@@ -168,8 +169,27 @@ header h1 {
       width: 131px;
       margin-left: 12px;
     }
+
   }
-  select {
-    background-color: transparent;
+  label[for="dobMonth-name"], #dobMonth-name {
+    display: none;
+  }
+  #dobDay, #dobMonth-num, #dobYear {
+    height: 50px;
+    width: 50px;
+    border: 2px solid $bordersForm;
+    padding: 0;
+    padding-left: 12px;
+  }
+  #dobYear {
+    width: 103px;
+  }
+  .hyphen {
+    display: inline-block;
+    height: 2px;
+    width: 10px;
+    background: $bordersForm;
+    vertical-align: middle;
+    margin: 0 7px 0 6px;
   }
 }

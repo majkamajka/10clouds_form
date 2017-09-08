@@ -66,8 +66,10 @@
 
                 <fieldset>
                   <legend>Date of Birth</legend>
-                  <label class="hidden" for="DOBday">day</label>
-                  <select name="day" id="DOBday">
+                  <label class="hidden" for="dobDay">day</label>
+                  <input type="number" name="day" step="1" min="1" max="31"  id="dobDay" />
+                  <span class="hyphen"></span>
+                  <!-- <select name="day" id="dobDay">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -99,11 +101,13 @@
                     <option value="29">29</option>
                     <option value="30">30</option>
                     <option value="31">31</option>
-                  </select>
+                  </select> -->
 
 
-                  <label class="hidden" for="DOBmonth">month</label>
-                  <select name="month" id="DOBmonth-num">
+                  <label class="hidden" for="dobMonth-num">month</label>
+                  <input type="number" name="month" step="1" min="1" max="12" id="dobMonth-num" />
+                  <span class="hyphen"></span>
+                  <!-- <select name="month" id="dobMonth-num">
                     <option value='1'>1</option>
                     <option value='2'>2</option>
                     <option value='3'>3</option>
@@ -116,9 +120,10 @@
                     <option value='10'>10</option>
                     <option value='11'>11</option>
                     <option value='12'>12</option>
-                  </select>
+                  </select> -->
 
-                  <select name="month" id="DOBmonth-name">
+                  <label class="hidden" for="dobMonth-name">month</label>
+                  <select name="month" id="dobMonth-name">
                     <option value='1'>January</option>
                     <option value='2'>February</option>
                     <option value='3'>March</option>
@@ -133,8 +138,8 @@
                     <option value='12'>December</option>
                   </select>
 
-                  <label class="hidden" for="DOByear">year</label>
-                  <input type="number" name="year" step="1" min="1900" max="2017" id="DOByear">
+                  <label class="hidden" for="dobYear">year</label>
+                  <input type="number" name="year" step="1" min="1900" max="2017" id="dobYear">
                 </fieldset>
 
                 <button type="submit" name="submit">
