@@ -73,7 +73,6 @@ p, h2, input, select, span {
   max-height: 100%;
   width: 100vw;
   max-width: 100%;
-
   z-index: -1;
   overflow: hidden;
   #gradient {
@@ -138,6 +137,7 @@ header h1 {
     font-size: 1.1rem;
     font-weight: 400;
     padding-left: 15px;
+
     display: block;
     margin-top: 13px;
     margin-bottom: 5px;
@@ -163,7 +163,7 @@ header h1 {
       border-bottom: 2px solid $mainDark;
     }
     &[id="name"] {
-      width: 260px;
+      width: 100%;
     }
     &[id="prefix"] {
       width: 114px;
@@ -172,13 +172,14 @@ header h1 {
     &[id="tel-number"] {
       width: 131px;
       margin-left: 12px;
+      padding-bottom: 16px;
     }
 
   }
   label[for="dobMonth-name"], #dobMonth-name {
     display: none;
   }
-  #dobDay, #dobMonth-num, #dobYear {
+  #dobDay, #dobMonth-num, #dobMonth-name, #dobYear {
     height: 50px;
     width: 50px;
     border: 2px solid $bordersForm;
@@ -188,6 +189,9 @@ header h1 {
       outline-style:none;
       border: 2px solid $mainDark;
     }
+  }
+  #dobMonth-name {
+    width: 130px;
   }
   #dobYear {
     width: 103px;
@@ -275,35 +279,7 @@ input[type="radio"]:checked + label span {
 
 @media (min-width: 800px) {
   .flex-container {
-    padding-top: 65px;
-  }
-  .grid-container {
-    width: 778px;
-    .row .left {
-    display: inline-block;
-    width: 308px;
-    }
-    .row .right {
-      width: 470px; // dodać +10px !!!!!!!!!!!!!!!!!!!!!!!!!
-    }
-    #form {
-      height: 552px;
-    }
-    #left-box {
-      height: 552px;
-      background-image: url('../images/bgimg.jpg');
-      background-repeat: no-repeat;
-      background-size: contain;
-      #cover {
-        height: 100%;
-        width: 100%;
-        background-color: rgba(32, 32, 32, 0.9);
-        img {
-          margin-top: 50px;
-          margin-left: 15px;
-        }
-      }
-    }
+    //padding-top: 65px;
   }
   #background {
     #gradient {
@@ -317,4 +293,61 @@ input[type="radio"]:checked + label span {
      right: 0;
     }
   }
+  .grid-container {
+    width: 778px;
+    .row .left {
+    display: inline-block;
+    width: 308px;
+    }
+    .row .right {
+      width: 470px; // dodać +10px !!!!!!!!!!!!!!!!!!!!!!!!!
+    }
+    header h1 {
+      font-size: 4.8rem;
+      padding-left: 65px;
+      line-height: 154px;
+    }
+    #form {
+      height: 552px;
+      padding: 50px;
+      h2 {
+        padding-right: 50px;
+              margin-bottom: 40px;
+      }
+      input[id="tel-number"] {
+        width: 241px;
+        margin-left: 12px;
+      }
+      label[for="dobMonth-num"], #dobMonth-num {
+        display: none;
+      }
+      label[for="dobMonth-name"], #dobMonth-name {
+        display: inline-block;
+      }
+      #dobYear {
+        width: 130px;
+      }
+      button {
+        left: auto;
+        right: -50px;
+      }
+    }
+
+    #left-box {
+      height: 552px;
+      background-image: url('../images/bgimg.jpg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      #cover {
+        height: 100%;
+        width: 100%;
+        background-color: rgba(32, 32, 32, 0.9);
+        img {
+          margin-top: 60px;
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+
 }

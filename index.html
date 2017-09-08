@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>10clouds_form</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#531fc0"/>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+
   </head>
   <body>
 
@@ -46,7 +48,6 @@
 
                 <fieldset>
                   <legend>Mobile</legend>
-
                   <label class="hidden" for="prefix">prefix</label>
                   <select name="prefix" id="prefix">
                     <option value="PL" selected>+48 (PL)</option>
@@ -58,7 +59,6 @@
 
                   <label class="hidden" for="tel-number">telephone number</label>
                   <input type="tel" name="tel-number" id="tel-number" />
-
                 </fieldset>
 
                 <fieldset>
@@ -67,8 +67,6 @@
                   <label for="female"><span><img src="./images/female.png" alt=""></span></label>
                   <input type="radio" name="gender" value="male" id="male">
                   <label for="male"><span><img src="./images/male.png" alt=""></span></label>
-
-
                 </fieldset>
 
                 <fieldset>
@@ -110,10 +108,9 @@
                     <option value="31">31</option>
                   </select> -->
 
-
                   <label class="hidden" for="dobMonth-num">month</label>
                   <input type="number" name="month" step="1" min="1" max="12" id="dobMonth-num" />
-                  <span class="hyphen"></span>
+
                   <!-- <select name="month" id="dobMonth-num">
                     <option value='1'>1</option>
                     <option value='2'>2</option>
@@ -144,6 +141,7 @@
                     <option value='11'>November</option>
                     <option value='12'>December</option>
                   </select>
+                  <span class="hyphen"></span>
 
                   <label class="hidden" for="dobYear">year</label>
                   <input type="number" name="year" step="1" min="1900" max="2017" id="dobYear">
@@ -172,5 +170,6 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/app.js"></script>
+
   </body>
 </html>
