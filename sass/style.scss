@@ -3,7 +3,6 @@
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   box-sizing: border-box;
-
 }
 
 $bgColor: #242424;
@@ -22,7 +21,7 @@ html {
 }
 
 body {
-      background-color: $bgColor;
+  background-color: $bgColor;
 }
 
 p, h2, input, select, span {
@@ -250,11 +249,8 @@ header h1 {
   }
 }
 
-
-// https://webdesign.tutsplus.com/articles/quick-tip-easy-css3-checkboxes-and-radio-buttons--webdesign-8953
-
 input[type="radio"] {
-    display:none;
+  display:none;
 }
 
 input[type="radio"] + label span {
@@ -267,7 +263,6 @@ input[type="radio"] + label span {
   vertical-align: middle;
   position: relative;
   margin-top: 5px;
-
   &::after {
     content: " ";
     background-color: $bgForm;
@@ -280,6 +275,7 @@ input[type="radio"] + label span {
     top: 15px;
   }
 }
+
 [for="male"] {
   margin-left: 26px;
 }
@@ -316,8 +312,6 @@ input[type="radio"]:checked + label span {
 #tab3 {
   top: 276px;
 }
-
-
 
 @media (min-width: 900px) {
   #background {
