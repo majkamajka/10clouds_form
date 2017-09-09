@@ -309,8 +309,9 @@ input[type='radio']:checked + label span {
   width: 25px;
   border-top: 2px solid $tabs;
   position: absolute;
-  right: -25px;
+  right: 30px;
   padding: 14px 0 0 14px;
+  z-index: -1;
   &.active {
     color: #ffffff;
     border-top: 2px solid $accent-bright;
@@ -361,10 +362,10 @@ input[type='radio']:checked + label span {
       white-space: nowrap;
       overflow: hidden;
       &.slide-right {
-        -webkit-transition: all 1s ease-in-out;
-        -moz-transition: all 1s ease-in-out;
-        -o-transition: all 1s ease-in-out;
-        transition: all 1s ease-in-out;
+        -webkit-transition: all .5s ease-in-out;
+        -moz-transition: all .5s ease-in-out;
+        -o-transition: all .5s ease-in-out;
+        transition: all .5s ease-in-out;
         width: 100%;
         padding: 50px;
       }
@@ -403,15 +404,22 @@ input[type='radio']:checked + label span {
         white-space: nowrap;
         overflow: hidden;
         &.btn-slide {
-          -webkit-transition: all .7s ease-in-out;
-          -moz-transition: all .7s ease-in-out;
-          -o-transition: all .7s ease-in-out;
-          transition: all .7s ease-in-out;
+          -webkit-transition: all .5s ease-in-out;
+          -moz-transition: all .5s ease-in-out;
+          -o-transition: all .5s ease-in-out;
+          transition: all .5s ease-in-out;
           width: 230px;
         }
       }
       .tab {
         display: block;
+        &.slide-tabs {
+          -webkit-transition: all .5s ease-in-out;
+          -moz-transition: all .5s ease-in-out;
+          -o-transition: all .5s ease-in-out;
+          transition: all .5s ease-in-out;
+          right: -25px;
+        }
       }
     }
 
@@ -427,10 +435,10 @@ input[type='radio']:checked + label span {
         overflow: hidden;
         width: 0;
         &.left-slide {
-          -webkit-transition: all .5s ease-in-out;
-          -moz-transition: all .5s ease-in-out;
-          -o-transition: all .5s ease-in-out;
-          transition: all .5s ease-in-out;
+          -webkit-transition: all .4s ease-in-out;
+          -moz-transition: all .4s ease-in-out;
+          -o-transition: all .4s ease-in-out;
+          transition: all .4s ease-in-out;
           width: 100%;
         }
         #cover {
