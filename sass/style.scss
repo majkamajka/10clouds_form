@@ -29,6 +29,10 @@ p, h2, input, select, span {
   color: $text;
 }
 
+select, input[type="radio"] + label span,  {
+  cursor: pointer;
+}
+
 .hidden {
   position: absolute;
   left: -10000px;
@@ -147,12 +151,23 @@ header h1 {
   legend.dob {
     margin-bottom: 15px;
   }
-
+  .select-wrapper {
+    display: inline-block;
+    position: relative;
+    &::after {
+      content: url('../images/dropdown-arrow.png');
+      position: absolute;
+      top: 3px;
+      right: 15px;
+      pointer-events: none;
+    }
+  }
   fieldset {
     border: none;
     margin-top: 18px;
   }
   input, select {
+    -webkit-appearance: none;
     font-size: 1.5rem;
     font-weight: 400;
     background-color: transparent;
@@ -251,7 +266,6 @@ input[type="radio"] + label span {
   padding-top: 10px;
   vertical-align: middle;
   position: relative;
-  cursor:pointer;
   margin-top: 5px;
 
   &::after {
@@ -279,7 +293,7 @@ input[type="radio"]:checked + label span {
   }
 }
 
-.toc {
+.tab {
   display: none;
   color: $tabs;
   height: 84px;
@@ -293,13 +307,13 @@ input[type="radio"]:checked + label span {
     border-top: 2px solid $accentBright;
   }
 }
-#toc1 {
+#tab1 {
   top: 110px;
 }
-#toc2 {
+#tab2 {
   top: 194px;
 }
-#toc3 {
+#tab3 {
   top: 276px;
 }
 
@@ -356,7 +370,7 @@ input[type="radio"]:checked + label span {
         left: auto;
         right: -50px;
       }
-      .toc {
+      .tab {
         display: block;
       }
     }

@@ -5,7 +5,6 @@
     <title>10clouds_form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#531fc0"/>
-
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
     <link rel="manifest" href="/manifest.json">
@@ -50,13 +49,16 @@
                 <fieldset>
                   <legend>Mobile</legend>
                   <label class="hidden" for="prefix">prefix</label>
-                  <select name="prefix" id="prefix">
-                    <option value="PL" selected>+48 (PL)</option>
-                    <option value="UK">+44 (UK)</option>
-                    <option value="DE">+49 (DE)</option>
-                    <option value="NO">+47 (NO)</option>
-                    <option value="US">+1 (US)</option>
-                  </select>
+                  <div class="select-wrapper">
+                    <select name="prefix" id="prefix">
+                      <option selected disabled hidden style='display: none' value=''></option>
+                      <option value="PL">+48 (PL)</option>
+                      <option value="UK">+44 (UK)</option>
+                      <option value="DE">+49 (DE)</option>
+                      <option value="NO">+47 (NO)</option>
+                      <option value="US">+1 (US)</option>
+                    </select>
+                  </div>
 
                   <label class="hidden" for="tel-number">telephone number</label>
                   <input type="tel" name="tel-number" id="tel-number" />
@@ -129,6 +131,7 @@
 
                   <label class="hidden" for="dobMonth-name">month</label>
                   <select name="month" id="dobMonth-name">
+                    <option selected disabled hidden style='display: none' value=''></option>
                     <option value='1'>January</option>
                     <option value='2'>February</option>
                     <option value='3'>March</option>
@@ -154,9 +157,9 @@
 
 
               </form>
-              <div id="toc1" class="toc">01</div>
-              <div id="toc2" class="toc active">02<br>Personal</div>
-              <div id="toc3" class="toc">03</div>
+              <div id="tab1" class="tab">01</div>
+              <div id="tab2" class="tab active">02<br>Personal</div>
+              <div id="tab3" class="tab">03</div>
             </div>
 
           </div>
