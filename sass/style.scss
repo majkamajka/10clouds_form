@@ -1,18 +1,18 @@
 * {
-  padding: 0;
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-$bgColor: #242424;
-$mainDark: #531fc0;
-$mainBright: #7841f4;
-$accentDark: #1cd4a3;
-$accentBright: #1bfec0;
+$bg-color: #242424;
+$main-dark: #531fc0;
+$main-bright: #7841f4;
+$accent-dark: #1cd4a3;
+$accent-bright: #1bfec0;
 $text: #202020;
-$bgForm: #fcfcfd;
-$bordersForm: #dfdfe4;
+$bg-form: #fcfcfd;
+$borders-form: #dfdfe4;
 $label: #a2a2af;
 $tabs: #555556;
 
@@ -21,39 +21,43 @@ html {
 }
 
 body {
-  background-color: $bgColor;
+  background-color: $bg-color;
 }
 
-p, h2, input, select, span {
+p,
+h2,
+input,
+select,
+span {
   color: $text;
 }
 
-select, input[type="radio"] + label span,  {
+select,
+input[type='radio'] + label span,
+button  {
   cursor: pointer;
 }
 
 .hidden {
+  height: 1px;
   position: absolute;
   left: -10000px;
   top: auto;
   width: 1px;
-  height: 1px;
   overflow: hidden;
 }
 
 .grid-container {
   width: 290px;
   margin: 0 auto;
-
   .row {
-      margin: 0 auto;
-    &:before,
-    &:after {
-      content : " ";
-      display : table;
+    margin: 0 auto;
+    &::before,
+    &::after {
+      content: '';
+      display: table;
       clear: both;
     }
-
     [class*='col'] {
       float: left;
       min-height: 1px;
@@ -73,9 +77,8 @@ select, input[type="radio"] + label span,  {
   top: 0;
   left: 0;
   display: block;
-  height: 100vh;
-  max-height: 100%;
   min-height: 640px;
+  height: 100%;
   width: 100vw;
   max-width: 100%;
   z-index: -1;
@@ -108,27 +111,29 @@ select, input[type="radio"] + label span,  {
   align-items: top;
 }
 
-header h1 {
-  font-size: 3.6rem;
-  font-weight: 300;
-  color: #ffffff;
-  padding-left: 30px;
-  line-height: 90px;
+header {
+  h1 {
+    font-size: 3.6rem;
+    font-weight: 300;
+    color: #ffffff;
+    padding-left: 30px;
+    line-height: 90px;
+  }
 }
 
 
 #form {
   width: 100%;
   height: 512px;
-  background-color: $bgForm;
+  background-color: $bg-form;
   padding: 35px 15px;
   position: relative;
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     height: 2px;
     width: 70px;
-    background-color: $accentBright;
+    background-color: $accent-bright;
     top: -1px;
   }
   h2 {
@@ -137,7 +142,8 @@ header h1 {
     line-height: 2.4rem;
     padding-left: 15px;
   }
-  label[for="name"], legend {
+  label[for='name'],
+  legend {
     color: $label;
     font-size: 1.1rem;
     font-weight: 400;
@@ -147,8 +153,10 @@ header h1 {
     margin-top: 13px;
     margin-bottom: 5px;
   }
-  legend.dob {
-    margin-bottom: 15px;
+  legend {
+    &.dob {
+      margin-bottom: 15px;
+    }
   }
   .select-wrapper {
     display: inline-block;
@@ -162,48 +170,53 @@ header h1 {
     }
   }
   fieldset {
-    border: none;
+    border: 0;
     margin-top: 18px;
   }
-  input, select {
+  input,
+  select {
     -webkit-appearance: none;
     font-size: 1.5rem;
     font-weight: 400;
     background-color: transparent;
-    border: none;
-    border-bottom: 2px solid $bordersForm;
+    border: 0;
+    border-bottom: 2px solid $borders-form;
     padding: 0 0 15px 15px;
     margin-bottom: 4px;
     &:focus {
-      outline-style:none;
-      border-bottom: 2px solid $mainDark;
+      outline-style: none;
+      border-bottom: 2px solid $main-dark;
     }
-    &[id="name"] {
+    &[id='name'] {
       width: 100%;
     }
-    &[id="prefix"] {
+    &[id='prefix'] {
       width: 114px;
       padding-left: 12px;
     }
-    &[id="tel-number"] {
+    &[id='tel-number'] {
       width: 131px;
       margin-left: 12px;
       padding-bottom: 16px;
     }
 
   }
-  label[for="dobMonth-name"], #dobMonth-name {
+  label[for='dobMonth-name'],
+  #dobMonth-name {
     display: none;
   }
-  #dobDay, #dobMonth-num, #dobMonth-name, #dobYear {
+  #dobDay,
+  #dobMonth-num,
+  #dobMonth-name,
+  #dobYear {
     height: 50px;
     width: 50px;
-    border: 2px solid $bordersForm;
+    border: 2px solid $borders-form;
     padding: 0;
     padding-left: 12px;
     &:focus {
-      outline-style:none;
-      border: 2px solid $mainDark;
+      outline-style: none;
+      border: 2px solid $main-dark;
     }
   }
   #dobMonth-name {
@@ -216,7 +229,7 @@ header h1 {
     display: inline-block;
     height: 2px;
     width: 10px;
-    background: $bordersForm;
+    background: $borders-form;
     vertical-align: middle;
     margin: 0 7px 0 6px;
   }
@@ -224,13 +237,13 @@ header h1 {
     position: absolute;
     bottom: -25px;
     left: 30px;
-    border: none;
+    border: 0;
     background: -webkit-linear-gradient(0deg, #8658eb 0%, #652ae6 100%);
     background: -moz-linear-gradient(0deg, #8658eb 0%, #652ae6 100%);
     background: -o-linear-gradient(0deg, #8658eb 0%, #652ae6 100%);
     background: -ms-linear-gradient(0deg, #8658eb 0%, #652ae6 100%);
     background: linear-gradient(90deg, #8658eb 0%, #652ae6 100%);
-    box-shadow: 0px 20px 25px 0px rgba(32, 31, 54, 0.15);
+    box-shadow: 0 20px 25px 0 rgba(32, 31, 54, 0.15);
     width: 230px;
     height: 50px;
     color: #ffffff;
@@ -243,49 +256,49 @@ header h1 {
       float: right;
       height: 50px;
       width: 50px;
-      background-color: $mainBright;
+      background-color: $main-bright;
 
     }
   }
 }
 
-input[type="radio"] {
-  display:none;
+input[type='radio'] {
+  display: none;
 }
 
-input[type="radio"] + label span {
-  display:inline-block;
+input[type='radio'] + label span {
+  display: inline-block;
   width: 50px;
   height: 50px;
-  border: 2px solid $bordersForm;
+  border: 2px solid $borders-form;
   text-align: center;
   padding-top: 10px;
   vertical-align: middle;
   position: relative;
   margin-top: 5px;
   &::after {
-    content: " ";
-    background-color: $bgForm;
+    content: ' ';
+    background-color: $bg-form;
     position: absolute;
     display: inline-block;
     height: 10px;
     width: 10px;
-    border: 2px solid $bordersForm;
+    border: 2px solid $borders-form;
     right: -8px;
     top: 15px;
   }
 }
 
-[for="male"] {
+[for='male'] {
   margin-left: 26px;
 }
 
-input[type="radio"]:checked + label span {
-  border: 2px solid $accentDark;
+input[type='radio']:checked + label span {
+  border: 2px solid $accent-dark;
   &::after {
     content: url('../images/fill.png');
     text-align: center;
-    border: 2px solid $accentDark;
+    border: 2px solid $accent-dark;
   }
 }
 
@@ -300,7 +313,7 @@ input[type="radio"]:checked + label span {
   padding: 14px 0 0 14px;
   &.active {
     color: #ffffff;
-    border-top: 2px solid $accentBright;
+    border-top: 2px solid $accent-bright;
   }
 }
 #tab1 {
@@ -322,18 +335,18 @@ input[type="radio"]:checked + label span {
       display: inline-block;
     }
     #lines-bottom {
-     left: auto;
-     right: 0;
+      left: auto;
+      right: 0;
     }
   }
   .grid-container {
     width: 778px;
     .row .left {
-    display: inline-block;
-    width: 308px;
+      display: inline-block;
+      width: 308px;
     }
     .row .right {
-      width: 470px; // dodać +10px !!!!!!!!!!!!!!!!!!!!!!!!!
+      width: 470px;
     }
     header h1 {
       font-size: 4.8rem;
@@ -345,16 +358,18 @@ input[type="radio"]:checked + label span {
       padding: 50px;
       h2 {
         padding-right: 50px;
-              margin-bottom: 40px;
+        margin-bottom: 40px;
       }
-      input[id="tel-number"] {
+      input[id='tel-number'] {
         width: 241px;
         margin-left: 12px;
       }
-      label[for="dobMonth-num"], #dobMonth-num {
+      label[for='dobMonth-num'],
+      #dobMonth-num {
         display: none;
       }
-      label[for="dobMonth-name"], #dobMonth-name {
+      label[for='dobMonth-name'],
+      #dobMonth-name {
         display: inline-block;
       }
       #dobYear {
@@ -377,7 +392,7 @@ input[type="radio"]:checked + label span {
       #cover {
         height: 100%;
         width: 100%;
-        background-color: rgba(32, 32, 32, 0.9);
+        background-color: rgba(32, 32, 32, .9);
         img {
           margin-top: 60px;
           margin-left: 20px;

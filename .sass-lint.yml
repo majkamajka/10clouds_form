@@ -13,7 +13,7 @@ rules:
 
   # Line Spacing
   one-declaration-per-line: 1
-  empty-line-between-blocks: 1
+  empty-line-between-blocks: 0
   single-line-per-selector: 1
 
   # Disallows
@@ -72,7 +72,7 @@ rules:
   max-line-length: 0
   max-file-line-count: 0
   nesting-depth: 1
-  property-sort-order: 1
+  property-sort-order: 0
   pseudo-element: 1
   quotes: 1
   shorthand-values: 1
