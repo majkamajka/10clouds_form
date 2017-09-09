@@ -3,17 +3,22 @@ $(function () {
   const form = $('.form2');
   const btn = $("button");
   const formText = $('.form2 h2');
+  const leftBox = $("#left-box");
+
 
   $(window).on("load", (() => {
     const slideForm = new Promise((resolve, reject) => {
-      resolve(form.addClass('slide-right'));
+      resolve(leftBox.addClass('left-slide'));
     });
-    slideForm .then(formText.css('white-space', 'normal'))
+
+    slideForm .then (form.addClass('slide-right'))
               .then(
                 setTimeout(() => {
                   form.css('overflow', 'visible');
                   btn.css("display", "inline-block");
                   btn.addClass('btn-slide');
-                }, 770));
+                }, 500));
 	}));
 });
+
+//.then(formText.css('white-space', 'normal'))
