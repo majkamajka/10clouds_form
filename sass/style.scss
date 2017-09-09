@@ -371,7 +371,7 @@ input[type='radio']:checked + label span {
       h2 {
         padding-right: 50px;
         margin-bottom: 40px;
-        width: 350px;
+        width: 360px;
       }
       input[type='number']::-webkit-outer-spin-button,
       input[type='number']::-webkit-inner-spin-button {
@@ -438,8 +438,17 @@ input[type='radio']:checked + label span {
           width: 100%;
           background-color: rgba(32, 32, 32, .9);
           img {
+            width: 0;
+            height: 411px;
             margin-top: 60px;
             margin-left: 20px;
+            &.img-resize {
+              -webkit-transition: all .5s ease-in-out;
+              -moz-transition: all .5s ease-in-out;
+              -o-transition: all .5s ease-in-out;
+              transition: all .5s ease-in-out;
+              width: 268px;
+            }
           }
         }
       }
