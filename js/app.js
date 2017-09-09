@@ -1,27 +1,19 @@
 $(function () {
 
-  // const x = new Promise((resolve, reject) => {
-  //
-  //     resolve($('.form2').addClass('slide-right'););
-  //
-  //
-  // });
-
-
+  const form = $('.form2');
+  const btn = $("button");
+  const formText = $('.form2 h2');
 
   $(window).on("load", (() => {
     const slideForm = new Promise((resolve, reject) => {
-        resolve($('.form2').addClass('slide-right'));
+      resolve(form.addClass('slide-right'));
     });
-
-
-    slideForm.then(
-      setTimeout(function () {
-        
-      $("button").css("display", "inline-block")
-    }, 1000));
-
-
+    slideForm .then(formText.css('white-space', 'normal'))
+              .then(
+                setTimeout(() => {
+                  form.css('overflow', 'visible');
+                  btn.css("display", "inline-block");
+                  btn.addClass('btn-slide');
+                }, 770));
 	}));
-
 });

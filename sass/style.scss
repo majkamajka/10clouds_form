@@ -371,11 +371,11 @@ input[type='radio']:checked + label span {
         transition: all 1s ease-in-out;
         width: 100%;
         padding: 50px;
-        //overflow: visible;
       }
       h2 {
         padding-right: 50px;
         margin-bottom: 40px;
+        width: 350px;
       }
       input[type='number']::-webkit-outer-spin-button,
       input[type='number']::-webkit-inner-spin-button {
@@ -403,7 +403,16 @@ input[type='radio']:checked + label span {
       button {
         left: auto;
         right: -50px;
-        display: none;
+        width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        &.btn-slide {
+          -webkit-transition: all .7s ease-in-out;
+          -moz-transition: all .7s ease-in-out;
+          -o-transition: all .7s ease-in-out;
+          transition: all .7s ease-in-out;
+          width: 230px;
+        }
       }
       .tab {
         display: block;
