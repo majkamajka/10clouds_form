@@ -83,6 +83,9 @@ button  {
   max-width: 100%;
   z-index: -1;
   overflow: hidden;
+  #gradient-lines {
+    display: none;
+  }
   #gradient {
     position: absolute;
     left: -30px;
@@ -328,21 +331,36 @@ input[type='radio']:checked + label span {
 }
 
 
-
-
-
-
 @media (min-width: 900px) {
   #background {
-    #gradient {
-      top: 0;
-    }
-    #lines-top {
+    #gradient-lines {
+      position: absolute;
       display: inline-block;
+      left: -30px;
+      width: 600px;
+      &.grow-gradient {
+        -webkit-transition: all 2.5s ease-in-out;
+        -moz-transition: all 2.5s ease-in-out;
+        -o-transition: all 2.5s ease-in-out;
+        transition: all 2.5s ease-in-out;
+        width: 833px;
+      }
+    }
+    #gradient,
+    #lines-top {
+      display: none;
     }
     #lines-bottom {
       left: auto;
       right: 0;
+      bottom: -273px;
+      &.slide-bottom-lines {
+        -webkit-transition: all 2.5s ease-in-out;
+        -moz-transition: all 2.5s ease-in-out;
+        -o-transition: all 2.5s ease-in-out;
+        transition: all 2.5s ease-in-out;
+        bottom: 0;
+      }
     }
   }
   .grid-container {

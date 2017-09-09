@@ -6,7 +6,8 @@ $(function () {
   const leftBox = $("#left-box");
   const leftLines = $('#cover img');
   const tabs = $('.tab');
-  console.log(tabs);
+  const bgTop = $('#gradient-lines');
+  const linesBottom = $('#lines-bottom');
 
 
   $(window).on("load", (() => {
@@ -18,6 +19,8 @@ $(function () {
                 setTimeout(() => {
                   form.addClass('slide-right');
                   leftLines.addClass('img-resize');
+                  bgTop.addClass('grow-gradient');
+                  linesBottom.addClass('slide-bottom-lines');
                 }, 500))
               .then(formText.css('white-space', 'normal'))
               .then(
