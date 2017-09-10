@@ -8,7 +8,7 @@
   HTML5, CSS3, Gulp, Sass, jQuery
 
 ## 3. Issues
-  - cross-browser compability
+  - cross-browser compability:
     Site is tested mostly on Google Chrome. Due to the lack of time there are some differences on other browsers (eg. select arrows in Firefox).
-  ### - form validation
-    Validation is really simple, for real usage it should be redone.
+  - form validation
+      Validation is really simple, for real usage it should be redone.
