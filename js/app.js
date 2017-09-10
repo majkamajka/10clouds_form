@@ -15,16 +15,14 @@ $(function () {
       resolve(leftBox.addClass('left-slide'));
     });
 
-    slideForm .then(
-                setTimeout(() => {
+    slideForm .then(bgTop.addClass('grow-gradient'))
+              .then(linesBottom.addClass('slide-bottom-lines'))
+              .then(setTimeout(() => {
                   form.addClass('slide-right');
                   leftLines.addClass('img-resize');
-                  bgTop.addClass('grow-gradient');
-                  linesBottom.addClass('slide-bottom-lines');
                 }, 500))
               .then(formText.css('white-space', 'normal'))
-              .then(
-                setTimeout(() => {
+              .then(setTimeout(() => {
                   form.css('overflow', 'visible');
                   btn.css("display", "inline-block");
                   btn.addClass('btn-slide');

@@ -38,6 +38,14 @@ button  {
   cursor: pointer;
 }
 
+@mixin trans($time) {
+  -webkit-transition: all $time ease-in-out;
+  -moz-transition: all $time ease-in-out;
+  -o-transition: all $time ease-in-out;
+  transition: all $time ease-in-out;
+}
+
+
 .hidden {
   height: 1px;
   position: absolute;
@@ -339,10 +347,7 @@ input[type='radio']:checked + label span {
       left: -30px;
       width: 600px;
       &.grow-gradient {
-        -webkit-transition: all 2.5s ease-in-out;
-        -moz-transition: all 2.5s ease-in-out;
-        -o-transition: all 2.5s ease-in-out;
-        transition: all 2.5s ease-in-out;
+
         width: 833px;
       }
     }
@@ -352,14 +357,12 @@ input[type='radio']:checked + label span {
     }
     #lines-bottom {
       left: auto;
-      right: 0;
+      right: -500px;
       bottom: -273px;
       &.slide-bottom-lines {
-        -webkit-transition: all 2.5s ease-in-out;
-        -moz-transition: all 2.5s ease-in-out;
-        -o-transition: all 2.5s ease-in-out;
-        transition: all 2.5s ease-in-out;
+        @include trans(2.5s);
         bottom: 0;
+        right: 0;
       }
     }
   }
@@ -380,10 +383,7 @@ input[type='radio']:checked + label span {
       white-space: nowrap;
       overflow: hidden;
       &.slide-right {
-        -webkit-transition: all .5s ease-in-out;
-        -moz-transition: all .5s ease-in-out;
-        -o-transition: all .5s ease-in-out;
-        transition: all .5s ease-in-out;
+        @include trans(.5s);
         width: 100%;
         padding: 50px;
       }
@@ -422,20 +422,14 @@ input[type='radio']:checked + label span {
         white-space: nowrap;
         overflow: hidden;
         &.btn-slide {
-          -webkit-transition: all .5s ease-in-out;
-          -moz-transition: all .5s ease-in-out;
-          -o-transition: all .5s ease-in-out;
-          transition: all .5s ease-in-out;
+          @include trans(.5s);
           width: 230px;
         }
       }
       .tab {
         display: block;
         &.slide-tabs {
-          -webkit-transition: all .5s ease-in-out;
-          -moz-transition: all .5s ease-in-out;
-          -o-transition: all .5s ease-in-out;
-          transition: all .5s ease-in-out;
+          @include trans(.5s);
           right: -25px;
         }
       }
@@ -453,10 +447,7 @@ input[type='radio']:checked + label span {
         overflow: hidden;
         width: 0;
         &.left-slide {
-          -webkit-transition: all .4s ease-in-out;
-          -moz-transition: all .4s ease-in-out;
-          -o-transition: all .4s ease-in-out;
-          transition: all .4s ease-in-out;
+          @include trans(.4s);
           width: 100%;
         }
         #cover {
@@ -469,21 +460,12 @@ input[type='radio']:checked + label span {
             margin-top: 60px;
             margin-left: 20px;
             &.img-resize {
-              -webkit-transition: all .5s ease-in-out;
-              -moz-transition: all .5s ease-in-out;
-              -o-transition: all .5s ease-in-out;
-              transition: all .5s ease-in-out;
+              @include trans(.5s);
               width: 268px;
             }
           }
         }
       }
     }
-
-
-
-
-
   }
-
 }
