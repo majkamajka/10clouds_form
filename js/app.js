@@ -1,161 +1,147 @@
-$(function () {
+$(() => {
 
-//animations
+// animations
   const form = $('.form2');
-  const btn = $("button");
+  const btn = $('button');
   const formText = $('.form2 h2');
-  const leftBox = $("#left-box");
+  const leftBox = $('#left-box');
   const leftLines = $('#cover img');
   const tabs = $('.tab');
   const bgTop = $('#gradient-lines');
   const linesBottom = $('#lines-bottom');
 
-//form
+// form
   const name = $('#name');
   const prefix = $('#prefix');
   const tel = $('#tel-number');
   const dobDay = $('#dobDay');
-  const dobMonthNum = $('#dobMonth-num');
-  const dobMonthName = $('#dobMonth-name');
   const dobYear = $('#dobYear');
-  console.log($(window).width());
 
+// ANIMATIONS
+  $(window).on('load', (() => {
+    const slideForm = new Promise((resolve, reject) => {
+      resolve(leftBox.addClass('left-slide'));
+    });
 
-  $(btn).on("click", () => {
+    slideForm.then(bgTop.addClass('grow-gradient'))
+      .then(linesBottom.addClass('slide-bottom-lines'))
+      .then(setTimeout(() => {
+        form.addClass('slide-right');
+        leftLines.addClass('img-resize');
+      }, 500))
+      .then(formText.css('white-space', 'normal'))
+      .then(setTimeout(() => {
+        form.css('overflow', 'visible');
+        btn.css('display', 'inline-block');
+        btn.addClass('btn-slide');
+        tabs.addClass('slide-tabs');
+      }, 900));
+  }));
+
+// FORM VALIDATION
+  $(btn).on('click', () => {
     event.preventDefault();
+    $('.warning').remove();
 // name
     $('span.warning.name-warn').remove();
-    let warning = $("<span class='warning name-warn'></span>");
+    let warning = $(`<span class='warning name-warn'></span>`);
     if (name.val().length > 50) {
-      warning.text("Name cannot be longer than 50 characters");
+      warning.text('Name cannot be longer than 50 characters');
       $(name).after(warning);
     }
-    if (name.val().indexOf(' ') > 0 && name.val().indexOf(' ') < name.val().length -1) {
-      console.log("name ok");
+    if (name.val().indexOf(' ') > 0 && name.val().indexOf(' ') < name.val().length - 1) {
+      console.log('name ok');
     } else {
-      warning.text("Enter both - first and second name");
+      warning.text('Enter both - first and second name');
       $(name).after(warning);
     }
     if (name.val().length === 0) {
-      warning.text("Enter your name");
+      warning.text('Enter your name');
       $(name).after(warning);
     }
 
 // prefix
     $('span.warning.prefix-warn').remove();
-    warning = $("<span class='warning prefix-warn'></span>");
+    warning = $(`<span class='warning prefix-warn'></span>`);
     if (prefix.val()) {
-      console.log("prefix ok");
+      console.log('prefix ok');
     } else {
-      warning.text("Select prefix");
+      warning.text('Select prefix');
       $('#tel').append(warning);
     }
 
-//tel-number
+// tel-number
     $('span.warning.tel-warn').remove();
-    warning = $("<span class='warning tel-warn'></span>");
+    warning = $(`<span class='warning tel-warn'></span>`);
     let telNum = tel.val();
     telNum = telNum.split(' ').join('');
     telNum = telNum.split('-').join('');
     if (telNum.match(/^\d+$/) && telNum.length === 9) {
-      console.log("telephone number ok");
+      console.log('telephone number ok');
     } else {
-      warning.text("Enter valid phone number (9 digits)");
+      warning.text('Enter valid phone number (9 digits)');
       $('#tel').append(warning);
     }
 
 // gender
     $('span.warning.gender-warn').remove();
-    warning = $("<span class='warning gender-warn'></span>");
-    if ($('#female').is(":checked") || $('#male').is(":checked")) {
-      console.log("gender ok");
+    warning = $(`<span class='warning gender-warn'></span>`);
+    if ($('#female').is(':checked') || $('#male').is(':checked')) {
+      console.log('gender ok');
     } else {
-      warning.text("Select gender");
+      warning.text('Select gender');
       $('#gender').append(warning);
     }
 
 // dob-day
     $('span.warning.dobDay-warn').remove();
-    warning = $("<span class='warning dobDay-warn'></span>");
+    warning = $(`<span class='warning dobDay-warn'></span>`);
     if (dobDay.val() && (dobDay.val() < 1 || dobDay.val() >31)) {
-      warning.text("range: 1-31");
+      warning.text('range: 1-31');
       $('#dob').append(warning);
-    } else {
-      warning.text("Select day");
+    } else if (dobDay.val() === ''){
+      warning.text('Select day');
       $('#dob').append(warning);
     }
 
-//dob-month
+// dob-month
     $('span.warning.dobMonth-warn').remove();
-    warning = $("<span class='warning dobMonth-warn'></span>");
+    warning = $(`<span class='warning dobMonth-warn'></span>`);
 
-    if ($('#dobMonth-num').css('display') != "none") {
+    if ($(window).width() < 900) {
       if ($('#dobMonth-num').val() === '') {
-        warning.text("Select month");
+        warning.text('Select month');
         $('#dob').append(warning);
       } else if ($('#dobMonth-num').val() && ($('#dobMonth-num').val() < 1 || $('#dobMonth-num').val() >12)) {
-        warning.text("range: 1-12");
+        warning.text('range: 1-12');
         $('#dob').append(warning);
       }
     } else {
       if ($('#dobMonth-name').val() === null) {
-        warning.text("Select month");
+        warning.text('Select month');
         $('#dob').append(warning);
       }
     }
 
-//dob-year
+// dob-year
     $('span.warning.dobYear-warn').empty();
-    warning = $("<span class='warning dobYear-warn'></span>");
-
-    if (dobYear.val() && (dobYear.val() < 1900 || dobYear.val() >2017)) {
-      warning.text("range: 1900-2017");
-      if ($('#dobMonth-name').css('display') != "none") {
-        warning.css('left', '238px')
+    warning = $(`<span class='warning dobYear-warn'></span>`);
+    if (dobYear.val() && (dobYear.val() < 1900 || dobYear.val() > 2017)) {
+      warning.text('range: 1900-2017');
+      if ($(window).width() >= 900) {
+        warning.css('left', '238px');
       }
       $('#dob').append(warning);
-    } else {
-      warning.text("Enter year");
-      if ($('#dobMonth-name').css('display') != "none") {
+    } else if (dobYear.val() === '') {
+      warning.text('Enter year');
+      if ($(window).width() >= 900) {
         warning.css('left', '238px')
       }
       $('#dob').append(warning);
     }
-
-
-
 
     if ($('.warning').length === 0) {
       console.log('form ok');
     }
-
   });
-
-
-
-
-
-
-
-
-
-  $(window).on("load", (() => {
-    const slideForm = new Promise((resolve, reject) => {
-      resolve(leftBox.addClass('left-slide'));
-    });
-
-    slideForm .then(bgTop.addClass('grow-gradient'))
-              .then(linesBottom.addClass('slide-bottom-lines'))
-              .then(setTimeout(() => {
-                  form.addClass('slide-right');
-                  leftLines.addClass('img-resize');
-                }, 500))
-              .then(formText.css('white-space', 'normal'))
-              .then(setTimeout(() => {
-                  form.css('overflow', 'visible');
-                  btn.css("display", "inline-block");
-                  btn.addClass('btn-slide');
-                  tabs.addClass('slide-tabs')
-                }, 900));
-	}));
 });
