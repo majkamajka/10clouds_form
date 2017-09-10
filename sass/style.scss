@@ -469,17 +469,22 @@ input[type='radio']:checked + label span {
     }
   }
 }
-
+#dob {
+  position: relative;
+}
 .form2 {
   span {
     &.warning {
       display: block;
       height: 0;
+      width: 0;
       font-size: 1rem;
       color: red;
-      //position: absolute;
-      top: 50px;
-
+      &.dobYear-warn {
+        position: absolute;
+        top: 85px;
+        left: 238px;
+      }
     }
   }
 }

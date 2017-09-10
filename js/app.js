@@ -54,16 +54,38 @@ $(function () {
     }
   });
 
+  $(dobDay).on("change", () => {
+    $('span.warning.dobDay-warn').empty();
+    let warning = $("<span class='warning dobDay-warn'></span>");
+    if (dobDay.val() < 1 || dobDay.val() >31) {
+      warning.text("range: 1-31");
+      $('#dob').append(warning);
+    }
+  });
 
-  $(dobDay).on("change", () => console.log(dobDay.val()));
   $(dobMonthNum).on("change", () => console.log(dobMonthNum.val()));
   $(dobMonthName).on("change", () => console.log(dobMonthName.val()));
-  $(dobYear).on("change", () => console.log(dobYear.val()));
+
+  $(dobYear).on("change", () => {
+    $('span.warning.dobYear-warn').empty();
+    let warning = $("<span class='warning dobYear-warn'></span>");
+    if (dobYear.val() < 1900 || dobYear.val() >2017) {
+      warning.text("range: 1900-2017");
+      $('#dob').append(warning);
+    }
+  });
 
   $(btn).on("click", () => {
     event.preventDefault();
-    console.log("x");
-  })
+    console.log($('.warning'));
+  });
+
+
+
+
+
+
+
 
 
   $(window).on("load", (() => {
