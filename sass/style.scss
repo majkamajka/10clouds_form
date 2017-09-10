@@ -469,3 +469,17 @@ input[type='radio']:checked + label span {
     }
   }
 }
+
+.form2 {
+  span {
+    &.warning {
+      display: block;
+      height: 0;
+      font-size: 1rem;
+      color: red;
+      //position: absolute;
+      top: 50px;
+
+    }
+  }
+}
