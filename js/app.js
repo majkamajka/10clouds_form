@@ -213,7 +213,7 @@ $(() => {
     if (dobDay.val() && (dobDay.val() < 1 || dobDay.val() >31)) {
       warning.text('range: 1-31');
       $('#dob').append(warning);
-    } else if (dobDay.val() === ''){
+    } else if (dobDay.val() === '') {
       warning.text('Select day');
       $('#dob').append(warning);
     }

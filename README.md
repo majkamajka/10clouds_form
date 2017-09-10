@@ -5,8 +5,8 @@
   You can view project on https://majkamajka.github.io/10clouds_form/ or clone repository and open index.html file.
 
 ## 2. Technologies used
-  HTML5, CSS3, Gulp, Sass, jQuery
+  HTML5, CSS3, Gulp, Sass, JavaScript, jQuery
 
 ## 3. Issues
-  - cross-browser compability: site is tested mostly on Google Chrome. Due to the lack of time there are some differences on other browsers (eg. select arrows in Firefox).
+  - cross-browser compatibility: site is tested mostly on Google Chrome. Due to the lack of time there are some differences on other browsers (e.g. select arrows in Firefox).
   - form validation: validation is really simple, for real usage it should be redone.
