@@ -14,44 +14,43 @@ $(function () {
   const name = $('#name');
   const prefix = $('#prefix');
   const tel = $('#tel-number');
-  // const gender
   const dobDay = $('#dobDay');
   const dobMonthNum = $('#dobMonth-num');
   const dobMonthName = $('#dobMonth-name');
   const dobYear = $('#dobYear');
 
   $(name).on("change", () => {
-    $('.tel-warn').remove();
+    $('span.warning.name-warn').empty();
+    let warning = $("<span class='warning name-warn'></span>");
 
-    let warning = $("<span class='warning tel-warn'></span>");
+    if (name.val().length > 50) { // czy nie za długie
+      warning.text("Name cannot be longer than 50 characters");
+      $(name).after(warning);
+    }
 
-
+    if (name.val().indexOf(' ') > 0 && name.val().indexOf(' ') < name.val().length -2) { // czy jest spacja w środku
+      console.log("name ok");
+    } else {
+      warning.text("Please enter both - first and second name");
+      $(name).after(warning);
+    }
 
     if (name.val().length === 0) { // czy wpisane
       warning.text("Please enter your name");
       $(name).after(warning);
     }
-
-    if (name.val().length >50) { // czy nie za długie
-      console.log("name cannot be longet than 50 chars");
-    }
-
-    if (name.val().indexOf(' ') > 0 && name.val().indexOf(' ') < name.val().length -2) { // czy jest spacja w środku
-      console.log("ok");
-    } else {
-      console.log("please enter both first and second name");
-    }
   });
-
 
   $(prefix).on("change", () => console.log(prefix.val()));
 
   $(tel).on("change", () => {
-    let tel2 = tel.val();
-    tel2 = tel2.split(" ").join("");
-    tel2 = tel2.split("-").join("");
-    if (tel2.length != 9) {
-      console.log("Please enter valid phone number (9 characters)");
+    $('span.warning.tel-warn').empty();
+    let warning = $("<span class='warning tel-warn'></span>");
+    if (tel.val().match(/^\d+$/) && tel.val().length === 9) { // match via stack overflow
+      console.log("telephone number ok");
+    } else {
+      warning.text("Please enter valid phone number (9 digits)");
+      $(tel).after(warning);
     }
   });
 
@@ -63,7 +62,7 @@ $(function () {
 
   $(btn).on("click", () => {
     event.preventDefault();
-    console.log();
+    console.log("x");
   })
 
 
