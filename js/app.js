@@ -20,38 +20,12 @@ $(function () {
   const dobYear = $('#dobYear');
 
   $(name).on("change", () => {
-    $('span.warning.name-warn').empty();
-    let warning = $("<span class='warning name-warn'></span>");
-
-    if (name.val().length > 50) { // czy nie za długie
-      warning.text("Name cannot be longer than 50 characters");
-      $(name).after(warning);
-    }
-
-    if (name.val().indexOf(' ') > 0 && name.val().indexOf(' ') < name.val().length -2) { // czy jest spacja w środku
-      console.log("name ok");
-    } else {
-      warning.text("Please enter both - first and second name");
-      $(name).after(warning);
-    }
-
-    if (name.val().length === 0) { // czy wpisane
-      warning.text("Please enter your name");
-      $(name).after(warning);
-    }
   });
 
   $(prefix).on("change", () => console.log(prefix.val()));
 
   $(tel).on("change", () => {
-    $('span.warning.tel-warn').empty();
-    let warning = $("<span class='warning tel-warn'></span>");
-    if (tel.val().match(/^\d+$/) && tel.val().length === 9) { // match via stack overflow
-      console.log("telephone number ok");
-    } else {
-      warning.text("Please enter valid phone number (9 digits)");
-      $(tel).after(warning);
-    }
+
   });
 
   $(dobDay).on("change", () => {
@@ -77,6 +51,49 @@ $(function () {
 
   $(btn).on("click", () => {
     event.preventDefault();
+// name
+    $('span.warning.name-warn').empty();
+    let warning = $("<span class='warning name-warn'></span>");
+    if (name.val().length > 50) {
+      warning.text("Name cannot be longer than 50 characters");
+      $(name).after(warning);
+    }
+    if (name.val().indexOf(' ') > 0 && name.val().indexOf(' ') < name.val().length -2) {
+      console.log("name ok");
+    } else {
+      warning.text("Please enter both - first and second name");
+      $(name).after(warning);
+    }
+    if (name.val().length === 0) {
+      warning.text("Please enter your name");
+      $(name).after(warning);
+    }
+
+// prefix
+  $('span.warning.prefix-warn').empty();
+  warning = $("<span class='warning prefix-warn'></span>");
+    if (prefix.val()) {
+      console.log("prefix ok");
+    } else {
+      warning.text("Select prefix");
+      $('#tel').append(warning);
+    }
+
+//tel-number
+    $('span.warning.tel-warn').empty();
+    warning = $("<span class='warning tel-warn'></span>");
+    let telNum = tel.val();
+    telNum = telNum.split(' ').join('');
+    telNum = telNum.split('-').join('');
+    if (telNum.match(/^\d+$/) && telNum.length === 9) {
+      console.log("telephone number ok");
+    } else {
+      warning.text("Please enter valid phone number (9 digits)");
+      $('#tel').append(warning);
+    }
+
+
+
     console.log($('.warning'));
   });
 

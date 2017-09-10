@@ -469,12 +469,15 @@ input[type='radio']:checked + label span {
     }
   }
 }
+
+#tel,
 #dob {
   position: relative;
 }
 .form2 {
   span {
     &.warning {
+      white-space: nowrap;
       display: block;
       height: 0;
       width: 0;
@@ -484,6 +487,11 @@ input[type='radio']:checked + label span {
         position: absolute;
         top: 85px;
         left: 238px;
+      }
+      &.tel-warn {
+        position: absolute;
+        top: 62px;
+        left: 130px;
       }
     }
   }
