@@ -18,60 +18,32 @@ $(function () {
   const dobMonthNum = $('#dobMonth-num');
   const dobMonthName = $('#dobMonth-name');
   const dobYear = $('#dobYear');
+  console.log($(window).width());
 
-  $(name).on("change", () => {
-  });
-
-  $(prefix).on("change", () => console.log(prefix.val()));
-
-  $(tel).on("change", () => {
-
-  });
-
-  $(dobDay).on("change", () => {
-    $('span.warning.dobDay-warn').empty();
-    let warning = $("<span class='warning dobDay-warn'></span>");
-    if (dobDay.val() < 1 || dobDay.val() >31) {
-      warning.text("range: 1-31");
-      $('#dob').append(warning);
-    }
-  });
-
-  $(dobMonthNum).on("change", () => console.log(dobMonthNum.val()));
-  $(dobMonthName).on("change", () => console.log(dobMonthName.val()));
-
-  $(dobYear).on("change", () => {
-    $('span.warning.dobYear-warn').empty();
-    let warning = $("<span class='warning dobYear-warn'></span>");
-    if (dobYear.val() < 1900 || dobYear.val() >2017) {
-      warning.text("range: 1900-2017");
-      $('#dob').append(warning);
-    }
-  });
 
   $(btn).on("click", () => {
     event.preventDefault();
 // name
-    $('span.warning.name-warn').empty();
+    $('span.warning.name-warn').remove();
     let warning = $("<span class='warning name-warn'></span>");
     if (name.val().length > 50) {
       warning.text("Name cannot be longer than 50 characters");
       $(name).after(warning);
     }
-    if (name.val().indexOf(' ') > 0 && name.val().indexOf(' ') < name.val().length -2) {
+    if (name.val().indexOf(' ') > 0 && name.val().indexOf(' ') < name.val().length -1) {
       console.log("name ok");
     } else {
-      warning.text("Please enter both - first and second name");
+      warning.text("Enter both - first and second name");
       $(name).after(warning);
     }
     if (name.val().length === 0) {
-      warning.text("Please enter your name");
+      warning.text("Enter your name");
       $(name).after(warning);
     }
 
 // prefix
-  $('span.warning.prefix-warn').empty();
-  warning = $("<span class='warning prefix-warn'></span>");
+    $('span.warning.prefix-warn').remove();
+    warning = $("<span class='warning prefix-warn'></span>");
     if (prefix.val()) {
       console.log("prefix ok");
     } else {
@@ -80,7 +52,7 @@ $(function () {
     }
 
 //tel-number
-    $('span.warning.tel-warn').empty();
+    $('span.warning.tel-warn').remove();
     warning = $("<span class='warning tel-warn'></span>");
     let telNum = tel.val();
     telNum = telNum.split(' ').join('');
@@ -88,22 +60,75 @@ $(function () {
     if (telNum.match(/^\d+$/) && telNum.length === 9) {
       console.log("telephone number ok");
     } else {
-      warning.text("Please enter valid phone number (9 digits)");
+      warning.text("Enter valid phone number (9 digits)");
       $('#tel').append(warning);
     }
 
 // gender
-    $('span.warning.gender-warn').empty();
+    $('span.warning.gender-warn').remove();
     warning = $("<span class='warning gender-warn'></span>");
     if ($('#female').is(":checked") || $('#male').is(":checked")) {
       console.log("gender ok");
     } else {
-      warning.text("Please select gender");
+      warning.text("Select gender");
       $('#gender').append(warning);
     }
 
+// dob-day
+    $('span.warning.dobDay-warn').remove();
+    warning = $("<span class='warning dobDay-warn'></span>");
+    if (dobDay.val() && (dobDay.val() < 1 || dobDay.val() >31)) {
+      warning.text("range: 1-31");
+      $('#dob').append(warning);
+    } else {
+      warning.text("Select day");
+      $('#dob').append(warning);
+    }
 
-    console.log($('.warning'));
+//dob-month
+    $('span.warning.dobMonth-warn').remove();
+    warning = $("<span class='warning dobMonth-warn'></span>");
+
+    if ($('#dobMonth-num').css('display') != "none") {
+      if ($('#dobMonth-num').val() === '') {
+        warning.text("Select month");
+        $('#dob').append(warning);
+      } else if ($('#dobMonth-num').val() && ($('#dobMonth-num').val() < 1 || $('#dobMonth-num').val() >12)) {
+        warning.text("range: 1-12");
+        $('#dob').append(warning);
+      }
+    } else {
+      if ($('#dobMonth-name').val() === null) {
+        warning.text("Select month");
+        $('#dob').append(warning);
+      }
+    }
+
+//dob-year
+    $('span.warning.dobYear-warn').empty();
+    warning = $("<span class='warning dobYear-warn'></span>");
+
+    if (dobYear.val() && (dobYear.val() < 1900 || dobYear.val() >2017)) {
+      warning.text("range: 1900-2017");
+      if ($('#dobMonth-name').css('display') != "none") {
+        warning.css('left', '238px')
+      }
+      $('#dob').append(warning);
+    } else {
+      warning.text("Enter year");
+      if ($('#dobMonth-name').css('display') != "none") {
+        warning.css('left', '238px')
+      }
+      $('#dob').append(warning);
+    }
+
+
+
+
+    if ($('.warning').length === 0) {
+      console.log('form ok');
+    }
+
   });
 
 

@@ -261,6 +261,7 @@ header {
     font-weight: 600;
     font-size: 1.2rem;
     line-height: 50px;
+    outline: none;
     &::after {
       content: url('../images/arrow.png');
       display: inline-block;
@@ -484,12 +485,8 @@ input[type='radio']:checked + label span {
       width: 0;
       font-size: 1rem;
       color: red;
-      &.dobYear-warn {
-        position: absolute;
-        top: 85px;
-        left: 238px;
-      }
       &.tel-warn {
+        width: 120px;
         position: absolute;
         top: 62px;
         left: 130px;
@@ -497,6 +494,16 @@ input[type='radio']:checked + label span {
       &.gender-warn {
         position: absolute;
         top: 80px;
+      }
+      &.dobMonth-warn {
+        position: absolute;
+        top: 83px;
+        left: 79px;
+      }
+      &.dobYear-warn {
+        position: absolute;
+        top: 83px;
+        left: 157px;
       }
     }
   }
