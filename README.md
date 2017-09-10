@@ -1,5 +1,5 @@
 # 10clouds_form
-  Simple form with personal information.
+  Simple page with animation and form with personal information. Mobile and desktop versions, mobile first approach.
 
 ## 1. Getting started
   You can view project on https://majkamajka.github.io/10clouds_form/ or clone repository and open index.html file.
