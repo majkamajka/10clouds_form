@@ -347,7 +347,7 @@ input[type='radio']:checked + label span {
       left: -30px;
       width: 600px;
       &.grow-gradient {
-
+        @include trans(2.5s);
         width: 833px;
       }
     }
