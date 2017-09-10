@@ -471,6 +471,7 @@ input[type='radio']:checked + label span {
 }
 
 #tel,
+#gender,
 #dob {
   position: relative;
 }
@@ -492,6 +493,10 @@ input[type='radio']:checked + label span {
         position: absolute;
         top: 62px;
         left: 130px;
+      }
+      &.gender-warn {
+        position: absolute;
+        top: 80px;
       }
     }
   }

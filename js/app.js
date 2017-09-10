@@ -92,6 +92,15 @@ $(function () {
       $('#tel').append(warning);
     }
 
+// gender
+    $('span.warning.gender-warn').empty();
+    warning = $("<span class='warning gender-warn'></span>");
+    if ($('#female').is(":checked") || $('#male').is(":checked")) {
+      console.log("gender ok");
+    } else {
+      warning.text("Please select gender");
+      $('#gender').append(warning);
+    }
 
 
     console.log($('.warning'));
