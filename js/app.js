@@ -14,8 +14,11 @@ $(() => {
   const name = $('#name');
   const prefix = $('#prefix');
   const tel = $('#tel-number');
+  const gender = $('[name="gender"]');
+  const dobMonths = $('[name="month"]');
   const dobDay = $('#dobDay');
   const dobYear = $('#dobYear');
+  let warning;
 
 // ANIMATIONS
   $(window).on('load', (() => {
@@ -39,6 +42,114 @@ $(() => {
   }));
 
 // FORM VALIDATION
+
+  $(name).on('change', () => {
+    $('span.warning.name-warn').remove();
+    warning = $(`<span class='warning name-warn'></span>`);
+    if (name.val().length > 50) {
+      warning.text('Name cannot be longer than 50 characters');
+      $(name).after(warning);
+    }
+    if (name.val().indexOf(' ') > 0 && name.val().indexOf(' ') < name.val().length - 1) {
+      console.log('name ok');
+    } else {
+      warning.text('Enter both - first and second name');
+      $(name).after(warning);
+    }
+    if (name.val().length === 0) {
+      warning.text('Enter your name');
+      $(name).after(warning);
+    }
+  });
+
+  $(prefix).on('change', () => {
+    $('span.warning.prefix-warn').remove();
+    warning = $(`<span class='warning prefix-warn'></span>`);
+    if (prefix.val()) {
+      console.log('prefix ok');
+    } else {
+      warning.text('Select prefix');
+      $('#tel').append(warning);
+    }
+  });
+
+  $(tel).on('change', () => {
+    $('span.warning.tel-warn').remove();
+    warning = $(`<span class='warning tel-warn'></span>`);
+    let telNum = tel.val();
+    telNum = telNum.split(' ').join('');
+    telNum = telNum.split('-').join('');
+    if (telNum.match(/^\d+$/) && telNum.length === 9) {
+      console.log('telephone number ok');
+    } else {
+      warning.text('Enter valid phone number (9 digits)');
+      if ($(window).width() < 900) {
+        warning.css('white-space', 'normal');
+      }
+      $('#tel').append(warning);
+    }
+  });
+
+  $(gender).on('change', () => {
+    $('span.warning.gender-warn').remove();
+    warning = $(`<span class='warning gender-warn'></span>`);
+    if ($('#female').is(':checked') || $('#male').is(':checked')) {
+      console.log('gender ok');
+    } else {
+      warning.text('Select gender');
+      $('#gender').append(warning);
+    }
+  });
+
+  $(dobDay).on('change', () => {
+    $('span.warning.dobDay-warn').remove();
+    warning = $(`<span class='warning dobDay-warn'></span>`);
+    if (dobDay.val() && (dobDay.val() < 1 || dobDay.val() >31)) {
+      warning.text('range: 1-31');
+      $('#dob').append(warning);
+    } else if (dobDay.val() === '') {
+      warning.text('Select day');
+      $('#dob').append(warning);
+    }
+  });
+
+  $(dobMonths).on('change', () => {
+    $('span.warning.dobMonth-warn').remove();
+    warning = $(`<span class='warning dobMonth-warn'></span>`);
+    if ($(window).width() < 900) {
+      if ($('#dobMonth-num').val() === '') {
+        warning.text('Select month');
+        $('#dob').append(warning);
+      } else if ($('#dobMonth-num').val() && ($('#dobMonth-num').val() < 1 || $('#dobMonth-num').val() >12)) {
+        warning.text('range: 1-12');
+        $('#dob').append(warning);
+      }
+    } else {
+      if ($('#dobMonth-name').val() === null) {
+        warning.text('Select month');
+        $('#dob').append(warning);
+      }
+    }
+  });
+
+  $(dobYear).on('change', () => {
+    $('span.warning.dobYear-warn').empty();
+    warning = $(`<span class='warning dobYear-warn'></span>`);
+    if (dobYear.val() && (dobYear.val() < 1900 || dobYear.val() > 2017)) {
+      warning.text('range: 1900-2017');
+      if ($(window).width() >= 900) {
+        warning.css('left', '238px');
+      }
+      $('#dob').append(warning);
+    } else if (dobYear.val() === '') {
+      warning.text('Enter year');
+      if ($(window).width() >= 900) {
+        warning.css('left', '238px')
+      }
+      $('#dob').append(warning);
+    }
+  })
+
   $(btn).on('click', () => {
     event.preventDefault();
     $('.warning').remove();
@@ -80,6 +191,9 @@ $(() => {
       console.log('telephone number ok');
     } else {
       warning.text('Enter valid phone number (9 digits)');
+      if ($(window).width() < 900) {
+        warning.css('white-space', 'normal');
+      }
       $('#tel').append(warning);
     }
 
