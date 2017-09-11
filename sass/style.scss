@@ -85,8 +85,8 @@ button  {
   top: 0;
   left: 0;
   display: block;
-  height: 640px;
-  //height: 100%;
+  min-height: 640px;
+  height: 100%;
   width: 100vw;
   max-width: 100%;
   z-index: -1;
