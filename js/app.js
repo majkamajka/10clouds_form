@@ -50,9 +50,7 @@ $(() => {
       warning.text('Name cannot be longer than 50 characters');
       $(name).after(warning);
     }
-    if (name.val().indexOf(' ') > 0 && name.val().indexOf(' ') < name.val().length - 1) {
-      console.log('name ok');
-    } else {
+    if (!(name.val().indexOf(' ') > 0 && name.val().indexOf(' ') < name.val().length - 1)) {
       warning.text('Enter both - first and second name');
       $(name).after(warning);
     }
@@ -65,9 +63,7 @@ $(() => {
   $(prefix).on('change', () => {
     $('span.warning.prefix-warn').remove();
     warning = $(`<span class='warning prefix-warn'></span>`);
-    if (prefix.val()) {
-      console.log('prefix ok');
-    } else {
+    if (!(prefix.val())) {
       warning.text('Select prefix');
       $('#tel').append(warning);
     }
@@ -79,9 +75,7 @@ $(() => {
     let telNum = tel.val();
     telNum = telNum.split(' ').join('');
     telNum = telNum.split('-').join('');
-    if (telNum.match(/^\d+$/) && telNum.length === 9) {
-      console.log('telephone number ok');
-    } else {
+    if (!(telNum.match(/^\d+$/) && telNum.length === 9)) {
       warning.text('Enter valid phone number (9 digits)');
       if ($(window).width() < 900) {
         warning.css('white-space', 'normal');
@@ -93,9 +87,7 @@ $(() => {
   $(gender).on('change', () => {
     $('span.warning.gender-warn').remove();
     warning = $(`<span class='warning gender-warn'></span>`);
-    if ($('#female').is(':checked') || $('#male').is(':checked')) {
-      console.log('gender ok');
-    } else {
+    if (!($('#female').is(':checked') || $('#male').is(':checked'))) {
       warning.text('Select gender');
       $('#gender').append(warning);
     }
@@ -160,9 +152,7 @@ $(() => {
       warning.text('Name cannot be longer than 50 characters');
       $(name).after(warning);
     }
-    if (name.val().indexOf(' ') > 0 && name.val().indexOf(' ') < name.val().length - 1) {
-      console.log('name ok');
-    } else {
+    if (!(name.val().indexOf(' ') > 0 && name.val().indexOf(' ') < name.val().length - 1)) {
       warning.text('Enter both - first and second name');
       $(name).after(warning);
     }
@@ -174,9 +164,7 @@ $(() => {
 // prefix
     $('span.warning.prefix-warn').remove();
     warning = $(`<span class='warning prefix-warn'></span>`);
-    if (prefix.val()) {
-      console.log('prefix ok');
-    } else {
+    if (!(prefix.val())) {
       warning.text('Select prefix');
       $('#tel').append(warning);
     }
@@ -187,9 +175,7 @@ $(() => {
     let telNum = tel.val();
     telNum = telNum.split(' ').join('');
     telNum = telNum.split('-').join('');
-    if (telNum.match(/^\d+$/) && telNum.length === 9) {
-      console.log('telephone number ok');
-    } else {
+    if (!(telNum.match(/^\d+$/) && telNum.length === 9)) {
       warning.text('Enter valid phone number (9 digits)');
       if ($(window).width() < 900) {
         warning.css('white-space', 'normal');
@@ -200,9 +186,7 @@ $(() => {
 // gender
     $('span.warning.gender-warn').remove();
     warning = $(`<span class='warning gender-warn'></span>`);
-    if ($('#female').is(':checked') || $('#male').is(':checked')) {
-      console.log('gender ok');
-    } else {
+    if (!($('#female').is(':checked') || $('#male').is(':checked'))) {
       warning.text('Select gender');
       $('#gender').append(warning);
     }
