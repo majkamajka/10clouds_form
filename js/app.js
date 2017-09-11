@@ -142,7 +142,7 @@ $(() => {
     }
   })
 
-  $(btn).on('click', () => {
+  $(btn).on('click', (event) => {
     event.preventDefault();
     $('.warning').remove();
 // name
