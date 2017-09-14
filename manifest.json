@@ -6,11 +6,11 @@
   "description": "10clouds simple form",
   "icons": [
     {
-      "src":"/images/android-chrome-192x192.png",
+      "src":"./images/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "start_url": "/?utm_source=homescreen",
   "display": "standalone"
 }
